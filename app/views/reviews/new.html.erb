@@ -1,0 +1,21 @@
+<!-- app/views/reviews/new.html.erb -->
+<h1>Add a Review for <%= @restaurant.name %></h1>
+
+<%= form_with model: @review, url: restaurant_reviews_path(@restaurant), local: true do |form| %>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, in: 0..5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add Review' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Restaurant', restaurant_path(@restaurant) %>
